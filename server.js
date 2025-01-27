@@ -17,8 +17,8 @@ async function main() {
         // console.log(newUser)
 
         // Read 
-        const users = await prisma.user.findMany()
-        console.log(users)
+        // const users = await prisma.user.findMany()
+        // console.log(users)
 
         // Update
         // const data = await prisma.user.update({
@@ -31,13 +31,13 @@ async function main() {
         // console.log(data)
 
         // Delete
-        const deletedUser = await prisma.user.delete({
-            where: {
-                email: "ascmailing0@gmail.com",
-                name: "Anukool"
-            }
-        })
-        console.log(deletedUser)
+        // const deletedUser = await prisma.user.delete({
+        //     where: {
+        //         email: "ascmailing0@gmail.com",
+        //         name: "Anukool"
+        //     }
+        // })
+        // console.log(deletedUser)
     } catch (err) {
         console.log(err);
     } finally {

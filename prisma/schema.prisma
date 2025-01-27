@@ -18,4 +18,13 @@ model User {
   name String
   email String @unique
   createdAt DateTime @default(now())
+  posts Posts[]
+}
+
+model Posts {
+  id Int @default(autoincrement()) @id
+  title String
+  content String
+  userId Int
+  user User @relation(fields: [userId], references: [id])
 }
