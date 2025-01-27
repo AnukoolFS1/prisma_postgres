@@ -16,7 +16,15 @@ async function main() {
         // const users = await prisma.user.findMany()
         // console.log(users)
 
-        
+        // Update
+        const data = await prisma.user.update({
+            where:{
+                id: 1
+            }, data: {
+                name: "Anukool Singh Chauhan",
+            }
+        })
+        console.log(data)
     } catch (err) {
         console.log(err);
     } finally {
