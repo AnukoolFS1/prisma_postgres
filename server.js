@@ -16,28 +16,28 @@ async function main() {
         // })
         // console.log(newUser)
 
-        Read 
+        // Read 
         const users = await prisma.user.findMany()
         console.log(users)
 
         // Update
-        const data = await prisma.user.update({
-            where:{
-                id: 3  //always remember that there should be atleast one constraint in {where} which is either @unique or @id
-            }, data: {
-                email: "anukool26@gmail.com",
-            }
-        })
-        console.log(data)
-
-        // Delete
-        // const deletedUser = await prisma.user.delete({
-        //     where: {
-        //         email: "ascmailing0@gmail.com",
-        //         name: "Anukool Chauhan"
+        // const data = await prisma.user.update({
+        //     where:{
+        //         id: 3  //always remember that there should be atleast one constraint in {where} which is either @unique or @id
+        //     }, data: {
+        //         email: "anukool26@gmail.com",
         //     }
         // })
-        // console.log(deletedUser)
+        // console.log(data)
+
+        // Delete
+        const deletedUser = await prisma.user.delete({
+            where: {
+                email: "ascmailing0@gmail.com",
+                name: "Anukool"
+            }
+        })
+        console.log(deletedUser)
     } catch (err) {
         console.log(err);
     } finally {
