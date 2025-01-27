@@ -74,9 +74,17 @@ async function posts() {
     console.log(posts)
 }
 
-main();
-// posts().catch(err => {
-//     throw err
-// }).finally(() => {
-//     prisma.$disconnect();
-// })
+
+async function app() {
+    try {
+
+        main();
+        posts()
+    } catch (err) {
+        console.log(err)
+    } finally {
+        await prisma.$disconnect();
+    }
+}
+
+app()
