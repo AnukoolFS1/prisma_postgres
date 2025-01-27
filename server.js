@@ -17,8 +17,13 @@ async function main() {
         // console.log(newUser)
 
         // Read 
-        // const users = await prisma.user.findMany()
-        // console.log(users)
+        const users = await prisma.user.findMany({
+            include: {
+                posts: true
+            }
+        })
+        console.log(JSON.stringify(users, null, 2));
+
 
         // Update
         // const data = await prisma.user.update({
@@ -45,4 +50,33 @@ async function main() {
     }
 }
 
+
+async function posts() {
+    // const newPost = await prisma.posts.createMany({
+    //     data: [{
+    //         title: "post-one",
+    //         content: "hello post one",
+    //         userId: 3
+    //     }, {
+    //         title: "post-two",
+    //         content: "hello post two",
+    //         userId: 3
+    //     }]
+    // })
+
+    // console.log(newPost)
+
+    const posts = await prisma.posts.findMany({
+        include: {
+            user: true
+        }
+    })
+    console.log(posts)
+}
+
 main();
+// posts().catch(err => {
+//     throw err
+// }).finally(() => {
+//     prisma.$disconnect();
+// })
