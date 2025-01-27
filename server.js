@@ -4,12 +4,19 @@ const prisma = new PrismaClient();
 
 async function main() {
     try {
-        const newUser = await prisma.user.create({
-            data: {
-                name: "Anukool",
-                email: "ascmailing0@gmail.com",
-            }
-        })
+        // Create
+        // const newUser = await prisma.user.create({
+        //     data: {
+        //         name: "Anukool",
+        //         email: "ascmailing0@gmail.com",
+        //     }
+        // })
+
+        // Read 
+        // const users = await prisma.user.findMany()
+        // console.log(users)
+
+        
     } catch (err) {
         console.log(err);
     } finally {
