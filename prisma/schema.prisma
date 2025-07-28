@@ -14,7 +14,16 @@ datasource db {
 }
 
 model Customer {
-  id    Int    @id @default(autoincrement())
+  id    Int     @id @default(autoincrement())
   name  String
-  email String @unique
+  email String  @unique
+  Order Order[]
+}
+
+model Order {
+  id         Int      @id @default(autoincrement())
+  item       String
+  price      String
+  customerId Int
+  customer   Customer @relation(fields: [customerId], references: [id])
 }

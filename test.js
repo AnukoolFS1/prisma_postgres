@@ -7,16 +7,14 @@ const prisma = new PrismaClient();
 //     const customer = await prisma.customer.create({
 //         data: {
 //             name: "Anukool",
-//             email: "anukool@postgresUser.com"
+//             email: "anukool@postgreslearing.com"
 //         }
 //     });
 
 //     console.log(customer);
 // }
 
-// main()
-//     .catch(console.error)
-//     .finally(() => prisma.$disconnect());
+
 /////////////////////////// Read ///////////////////////////////////////
 
 // async function main() {
@@ -46,7 +44,27 @@ const prisma = new PrismaClient();
 //     console.log(customer)
 // }
 
+////////////////////////////// Delete ///////////////////////////////////////
+// async function main() {
 
-main()
-    .catch(console.error)
-    .finally(() => prisma.$disconnect());
+//     const deleteUsers = await prisma.customer.deleteMany({ /// deleting multiple data(rows) with matching the values in where
+//         where: { name: "Anukool" }
+//     });
+//     console.log(deleteUsers)
+// }
+
+
+// async function main() {
+
+//     const deletedUser = await prisma.customer.delete({
+//         where: {
+//             id: 5
+//         }
+//     })
+
+//     console.log(deletedUser)
+// }
+
+// main()
+//     .catch(console.error)
+//     .finally(() => prisma.$disconnect());
