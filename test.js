@@ -65,6 +65,75 @@ const prisma = new PrismaClient();
 //     console.log(deletedUser)
 // }
 
-// main()
-//     .catch(console.error)
-//     .finally(() => prisma.$disconnect());
+////////////////////////////// Relation creating from customer table /////////////////////////
+// async function main() {
+//     const createUserWithOrder = await prisma.customer.update({
+//         where: { id: 7 },
+//         data: {
+//             name: "Ravi",
+//             email: "ravi@foodie.com",
+//             Order: {
+//                 create: [{
+//                     item: "price",
+//                     price: 122.5
+//                 }, {
+//                     item: "pizza",
+//                     price: 300.00
+//                 }
+//                 ]
+//             }
+//         }
+//     })
+//     console.log(createUserWithOrder)
+// }
+
+////////////////////////////// Relation creating from order table ////////////////////////////
+// async function main() {
+//     const createOrder = await prisma.order.create({
+//         data: {
+//             item: "Burger",
+//             price: 29.99,
+//             customer: {
+//                 connect: { id: 6 }
+//             }
+//         }
+//     })
+// }
+
+async function main() {
+    // const readCustomers = await prisma.customer.findMany({ // getting data
+    //     include: {
+    //         Order: true
+    //     }
+    // })
+
+    // const readCustomers = await prisma.customer.findMany({ // getting data with selected field of order
+    //     include: {
+    //         Order: {
+    //             select: {
+    //                 item: true,
+    //                 price: true
+    //             }
+    //         }
+    //     }
+    // })
+
+    //     const readCustomers = await prisma.customer.findMany({ // getting data with all selected field
+    //         select: {
+    //             name: true,
+    //             email: true,
+    //             Order: {
+    //                 select: {
+    //                     item: true,
+    //                     price: true
+    //                 }
+    //             }
+    //         }
+    //     })
+
+        // console.log(JSON.stringify(readCustomers, null, 2))
+}
+
+main()
+    .catch(console.error)
+    .finally(() => prisma.$disconnect());
